@@ -1,4 +1,3 @@
-   <script type="text/javascript">
 
       $('.form_submit').on('submit', function(e){
          e.preventDefault();
@@ -243,18 +242,30 @@
    </div>
    @endsection
 
+   use Yajra\DataTables\DataTables;
+   public function datatables(){
+        $data = MasterJenisMobil::orderBy('id','desc')->get();
+
+        return DataTables::of($data)
+                    ->addIndexColumn()
+                    ->make(true);
+    }
+
+    fromatter
+    return response()->json([
+            'code' => 400,
+            'errors' => $array,
+            'message' => 'Input validation error'
+        ], 400);
 
    @if(!empty(array_intersect(['laporan/transaksi', 'laporan/keuangan', 'laporan/pendapatan-karyawan'], Auth::user()->hak_akses)))
 
    
-   </script>
 
    #6E214A!important
 
 
 
-
-<script>
       
    .btn-success{
       box-shadow: 0 2px 6px #a8f5b4;
@@ -355,4 +366,3 @@
       font-family: Poppins,Helvetica,sans-serif!important;
       font-size: 1.2rem!important;
    }
-</script>
