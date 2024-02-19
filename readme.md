@@ -222,7 +222,7 @@
       });
 
    @section('modal')
-   <div class="modal fade" id="modal_qris" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+   <!-- <div class="modal fade" id="modal_qris" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"> -->
       <div class="modal-dialog mw-650px">
          <div class="modal-content">
                <div class="modal-header">
@@ -259,6 +259,9 @@
         ], 400);
 
    @if(!empty(array_intersect(['laporan/transaksi', 'laporan/keuangan', 'laporan/pendapatan-karyawan'], Auth::user()->hak_akses)))
+
+   Route::group(['middleware' => ['ceklogin']], function () {
+   Route::middleware(['cors','cek_login'])->group(function () {
 
    
 
